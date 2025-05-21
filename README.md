@@ -40,7 +40,7 @@ python jusoApp.py
 
 - Python 3.x
 - Flask
-- SQLAlchemy (SQLite 데이터베이스)
+- 텍스트 파일 기반 저장소 (JSON 형식)
 - HTML/CSS
 
 ## 라이센스

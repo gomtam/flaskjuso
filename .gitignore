@@ -5,10 +5,11 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# 데이터베이스
+# 데이터베이스 및 데이터 파일
 *.db
 *.sqlite
 *.sqlite3
+contacts.txt
 
 # 시스템 파일
 .DS_Store
