@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}홈{% endblock %}
+
+{% block content %}
+    <h2>내 연락처 목록</h2>
+    
+    <div class="search-box">
+        <form action="{{ url_for('search') }}" method="get">
+            <input type="text" name="query" placeholder="검색어 입력..." value="{{ search_query if search_query else '' }}">
+            <button type="submit">검색</button>
+            {% if search_query %}
+                <a href="{{ url_for('index') }}" class="clear-search">전체보기</a>
+            {% endif %}
+        </form>
+    </div>
+    
+    {% if contacts %}
+        <div class="contacts">
+            {% for contact in contacts %}
+                <div class="contact-card">
+                    <h3>{{ contact.name }}</h3>
+                    {% if contact.phone %}
+                        <p><strong>전화:</strong> {{ contact.phone }}</p>
+                    {% endif %}
+                    {% if contact.email %}
+                        <p><strong>이메일:</strong> {{ contact.email }}</p>
+                    {% endif %}
+                    {% if contact.address %}
+                        <p><strong>주소:</strong> {{ contact.address }}</p>
+                    {% endif %}
+                    <div class="actions">
+                        <a href="{{ url_for('edit', id=contact.id) }}" class="btn-edit">편집</a>
+                        <a href="{{ url_for('delete', id=contact.id) }}" class="btn-delete" onclick="return confirm('정말로 이 연락처를 삭제하시겠습니까?');">삭제</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="no-contacts">연락처가 없습니다. 새 연락처를 추가해보세요!</p>
+    {% endif %}
+    
+    <div class="add-contact-btn">
+        <a href="{{ url_for('add') }}" class="btn">새 연락처 추가</a>
+    </div>
+{% endblock %} 

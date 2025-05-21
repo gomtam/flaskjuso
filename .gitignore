@@ -1,0 +1,32 @@
+# 가상 환경
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 데이터베이스
+*.db
+*.sqlite
+*.sqlite3
+
+# 시스템 파일
+.DS_Store
+Thumbs.db
+
+# IDE 설정
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 로그 파일
+*.log
+
+# 환경 변수
+.env
+
+# 캐시 파일
+.pytest_cache/
+.coverage
+htmlcov/ 

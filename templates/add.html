@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}연락처 추가{% endblock %}
+
+{% block content %}
+    <h2>새 연락처 추가</h2>
+    
+    <div class="form-container">
+        <form action="{{ url_for('add') }}" method="post">
+            <div class="form-group">
+                <label for="name">이름 *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">전화번호</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            
+            <div class="form-group">
+                <label for="email">이메일</label>
+                <input type="email" id="email" name="email">
+            </div>
+            
+            <div class="form-group">
+                <label for="address">주소</label>
+                <textarea id="address" name="address" rows="3"></textarea>
+            </div>
+            
+            <div class="form-buttons">
+                <button type="submit" class="btn-primary">저장</button>
+                <a href="{{ url_for('index') }}" class="btn">취소</a>
+            </div>
+        </form>
+    </div>
+{% endblock %} 
